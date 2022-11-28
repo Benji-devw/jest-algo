@@ -1,75 +1,47 @@
+export function findLongestWordLength(str) {
+  let result = 0;
+  let tete = null;
 
-const sentence = () => {
-  const sent = 'Hello World'
-  return sent
-}
-
-
-
-
-
-function isPalindrom(word) {
-  // var regex = /[a-zA-Z0-9]/g; // only count letters and numbers
-  const reverseWord = word.split('').reverse().join('')
-  // const reverseWord = word.toLowerCase().replace(/,/g, '').replace(/ /g, '').split('').reverse().join('')
-  const result = word === reverseWord
-  return result
-}
-
-
-
-
-
-const FORBIDDENWORDS = ['truffe', 'truffes', 'boulés', 'cons']
-
-function containsForbiddenWords(message) {
-  
-  const messageWords = message.split(' ')
-  let result
-  let detectedForbiddenWords = []
-  // console.log('>>>>>>>', detectedForbiddenWords);
-
-  for (let index = 0; index < messageWords.length; index++) {
-    const word = messageWords[index].toLowerCase()
-    // if (FORBIDDENWORDS.includes(word)) {
-    if (FORBIDDENWORDS.indexOf(word) !== -1) {
-      detectedForbiddenWords.push(word)
+  for (const word of str.split(" ")) {
+    if (result < word.length) {
+      result = word.length;
+      tete = word;
     }
   }
-  if (detectedForbiddenWords.length > 0) {
-    result = true
-  } else {result = false}
+  // console.log(tete)
+  return tete.length;
+};
 
-
-  return result
-}
-
-
-
-
-function removeForbiddenWords(message) {
-  const hasForbiddenWords = containsForbiddenWords(message)
-
-  if (!hasForbiddenWords) {
-    // console.log('>>>>>>>>>>',hasForbiddenWords);
-    return message
+export function factorialize(num) {
+  let product = 1;
+  for (let i = 2; i <= num; i++) {
+    product *= i;
   }
+  return product;
+};
 
-  const words = message.split(' ')
-  const result = words.map(x => {
-    if (FORBIDDENWORDS.includes(x.toLowerCase())) {
-        return 'xxxx'
-    } else {
-      return x
+export function largestOfFour(arr) {
+  let result = [];
+
+  arr.forEach((tab) => {
+    let counter = 0;
+    for (let j = 0; j < tab.length; j++) {
+      counter = Math.max(...tab);
     }
-  })
-
-  // console.log('>>>>>>>>>', result.join(' ') );
-
-  return result.join(' ')
-}
-
+    result.push(counter);
+  });
+  // console.log(result);
+  return result;
+};
 
 
+export function confirmEnding(str, target) {
+  const getLastLetters = str.slice(-target.length)
+  return getLastLetters.indexOf(target) !== -1 ? true : false
+  // return str.endsWith(target) ? true : false;             // Letter contains
+};
 
-module.exports = { isPalindrom, containsForbiddenWords, sentence, removeForbiddenWords }
+
+// function repeatStringNumTimes(str, num) {
+//   return str;
+// }

@@ -41,6 +41,7 @@ export function getScore(playerRounds) {
   checkIfLose >= 3 ? (result = 0) : result === 50 && (result = "win")
 
   return result
+  
 }
 
 

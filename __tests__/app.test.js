@@ -1,46 +1,48 @@
-const app = require('../src/app');
- 
-// describe('Palindrom', () => {
+const app = require("../src/app");
 
-//   it.todo("should return a sentence and to great to 0")
-//   // it.todo("should return a sentence and to great to 0", () => {
-//   //   expect(app.sentence.length).toBeGreaterThan(0)
-//   // })
-//   it('should have a of 11 length', () => {
-//     expect(app.sentence().length).toEqual(11)
-//   })
+describe("find Longest Word Length", () => {
+  it("should return 6", () => {
+    expect(
+      app.findLongestWordLength("The quick brown fox jumped over the lazy dog")
+    ).toBe(6);
+  });
+});
 
-//   it ("should be a word palindrom", () => {
-//     expect(app.isPalindrom('kayak'.toLowerCase())).toEqual(true)
-//   })
+describe("factorialize", () => {
+  it("should return 120", () => {
+    expect(app.factorialize(5)).toBe(120);
+  });
+});
 
-//   it ("should be a sentence palindrom", () => {
-//     expect(app.isPalindrom("karinE alla, en, Irak".toLowerCase().replace(/,/g, '').replace(/ /g, ''))).toEqual(true)
-//     // expect(app.isPalindrom("Rose utérus, à ma masure, tu es or".toLowerCase().replace(/,/g, '').replace(/ /g, ''))).toEqual(true)
-//   })
+describe("Largest number Array", () => {
+  it("should return largest NUmbers in Arrays", () => {
+    const largestOfFour = [ [4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1] ];
+    expect(app.largestOfFour(largestOfFour)).toEqual([5, 27, 39, 1001]);
+  });
+  
+  it("should return negative largest NUmbers in Arrays", () => {
+    const largestOfFour = [ [17, 23, 25, 12], [25, 7, 34, 48], [4, -10, 18, 21], [-72, -3, -17, -10] ];
+    expect(app.largestOfFour(largestOfFour)).toEqual([25, 48, 21, -3]);
+  });
+});
 
-//   it ("should NOT be a palindrom", () => {
-//     expect(app.isPalindrom('azerty')).toEqual(false)
-//   })
-// })
+describe("Confirm the Ending", () => {
+  it("should return true", () => {
+    expect(app.confirmEnding("Bastian", "n")).toEqual(true);
+  });
+  
+  it("should return true", () => {
+    expect(app.confirmEnding("Congratulation", "on")).toEqual(true);
+  });
+  
+  it("Vérifie si une chaîne (premier argument, str) se termine par la chaîne cible donnée (deuxième argument, cible).", () => {
+    expect(app.confirmEnding("Connor", "n")).toEqual(false);
+  });
+});
 
+// describe("Repeat a String Repeat a String", () => {
+//   it.only("should return the string ***", () => {
+//     expect(app.repeatStringNumTimes("*", "3")).toEqual(true);
+//   });
 
-
-describe('Moderator', () => {
-  it('if contains forbidden words', () => {
-    expect(app.containsForbiddenWords('Vous êtes tous des truffes et des boulés les gars')).toEqual(true)
-  })
-
-  it('remove all forbidden words', () => {
-    expect(app.removeForbiddenWords('Vous êtes tous des cons band de truffes les gars')).toEqual('Vous êtes tous des xxxx band de xxxx les gars')
-  })
-
-  it('return the sentence if no forbidden detect', () => {
-    expect(app.removeForbiddenWords('Vous êtes des gentils les gars')).toEqual('Vous êtes des gentils les gars')
-  })
-
-  it('If detect cases haks', () => {
-    expect(app.removeForbiddenWords('Vous êtes tous des TruffEs')).toBe('Vous êtes tous des xxxx')
-    // expect(app.removeForbiddenWords('Vous êtes tous des Tr**uffEs')).toEqual('Vous êtes tous des xxxx')
-  })
-})
+// });
