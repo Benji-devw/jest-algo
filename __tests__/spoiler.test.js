@@ -14,5 +14,4 @@ test('displays content after click', () => {
   // expect(spoilerText.classList.contains('visible')).toBe(true)
   expect(spoilerText).toHaveClass('visible')
 
-
 })

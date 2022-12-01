@@ -28,21 +28,69 @@ describe("Largest number Array", () => {
 
 describe("Confirm the Ending", () => {
   it("should return true", () => {
-    expect(app.confirmEnding("Bastian", "n")).toEqual(true);
+    expect(app.confirmEnding("Bastian", "n")).toBe(true);
   });
   
   it("should return true", () => {
-    expect(app.confirmEnding("Congratulation", "on")).toEqual(true);
+    expect(app.confirmEnding("Congratulation", "on")).toBe(true);
   });
   
   it("Vérifie si une chaîne (premier argument, str) se termine par la chaîne cible donnée (deuxième argument, cible).", () => {
-    expect(app.confirmEnding("Connor", "n")).toEqual(false);
+    expect(app.confirmEnding("Connor", "n")).toBe(false);
   });
 });
 
-// describe("Repeat a String Repeat a String", () => {
-//   it.only("should return the string ***", () => {
-//     expect(app.repeatStringNumTimes("*", "3")).toEqual(true);
-//   });
+describe("Repeat a String Repeat a String", () => {
+  it("should return the string ***", () => {
+    expect(app.repeatStringNumTimes("*", "3")).toBe("***");
+  });
 
+  it("should return ''", () => {
+    expect(app.repeatStringNumTimes("abc", "0")).toBe('');
+  });
+});
+
+describe("Truncate a String", () => {
+  const str = "A-tisket a-tasket A green"
+  it("should return the string 'A-tisket...'", () => {
+    expect(app.truncateString(str, 8)).toBe("A-tisket...");
+  });
+
+  it("should return 'str' ", () => {
+    const str = "A-tisket a-tasket A green and yellow basket"
+    expect(app.truncateString(str, str.length)).toEqual(str);
+  });
+});
+
+describe("Finders Keepers", () => {
+  it("should return 8'", () => {
+    expect(app.findModulo([1, 3, 5, 8, 9, 10], function(num) { return num % 2 === 0; })).toBe(8);
+  });
+});
+
+describe("True false => booWho", () => {
+  it("should return true'", () => {
+    expect(app.booWho(true)).toBe(true);
+  });
+  it("should return true'", () => {
+    expect(app.booWho(false)).toBe(true);
+  });
+  it("should return false'", () => {
+    expect(app.booWho([1, 2, 3])).toBe(false);
+  });
+});
+
+describe("Title Case a Sentence", () => {
+  it("should return =>  I'm a little tea pot ", () => {
+    expect(app.titleCase("I'm a little tea pot")).toBe("I'm A Little Tea Pot");
+  });
+  it("should return sHoRt AnD sToUt", () => {
+    expect(app.titleCase("sHoRt AnD sToUt")).toBe("Short And Stout");
+  });
+});
+
+// describe("Slice & splice", () => {
+//   it.only("should return [4, 1, 2, 3, 5] ", () => {
+//     expect(app.frankenSplice([1, 2, 3], [4, 5], 1)).toEqual([4, 1, 2, 3, 5]);
+//   });
 // });
